@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+<section class="cours">
+   {% for cours in cours %}
+    <cours>
+        <h2>{{ cours.title }}</h2>
+        <div class="metadata">Ecrit le {{cours.createAt | date("d/m/Y")}} a {{cours.createAt | date("H:i")}}</div>
+        <div class="content">
+            <img src="{{cours.image}}" alt="">
+            {{ cours.content | raw }}
+            <a href="{{ path('blog_show', {'id':cours.id})}}" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </cours>
+   {% endfor %} 
+
+
+</section>
+{% endblock %}
